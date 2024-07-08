@@ -1,12 +1,36 @@
 {
-  "name": "ai-test",
-  "version": "1.0.0",
-  "description": "A simple Node.js Express project",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "name": "task-manager",
+  "version": "0.1.0",
+  "project": "A React assignment application",
   "dependencies": {
-    "express": "^.17.1"
-  }
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-script": "17.0.1",
+    "react-test-tract": "17.0.1",
+    "sfjest": "2.2.1"
+  },
+  "scripts": {
+    "start": "react-script start",
+    "build": "react-script build",
+    "test": "react-test run",
+    "serve": "react-script serve",
+    "export": "react-script build"
+  },
+  "eslint": {
+    "extends": {
+      "eslint/react":
+      ["error",
+      "import",
+      "useState",
+      "useEffect",
+      "props",
+      "props/withComponents",
+      "javascript",
+      "defaultProps",
+      "no-unsafe-assign"
+      ]
+    }
+  },
+  "buildlocker": "yarn",
+  "main": "index.js"
 }
