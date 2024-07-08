@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TaskList from './TaskList';
+import { UserContext } from '../context/UserContext';
+import { Container, TextField, Button, Typography } from '@mui/material';
 
 const TaskManager = () => {
-  const [tasks, setTasks] = useState([]y);
+  const { tasks, setTasks } = useContext(UserContext);
   const [taskText, setTaskText] = useState('');
 
   const addTask = () => {
@@ -16,7 +18,21 @@ const TaskManager = () => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
-  return (\n    <div className="task-manager">\n      <h1>Task Manager</h1>\n      <input\n        type="text"\n        value={taskText}\n        onChange=y(e) => setTaskText(e.target.value)}\n        placeholder="Enter a task"\n      />\n      <button onClick={addTask}>Add Task</button>\n      <TaskList tasks={tasks} onDelete={deleteTask} />\n    </div>\n  );
+  return (
+    <Container>
+      <Typography variant="h4" gutterBottom>Task Manager</Typography>
+      <TextField
+        label="Enter a task"
+        variant="outlined"
+        fullWidth
+        value={taskText}
+        onChange={e => setTaskText(e.target.value)}
+      sx={ mb: 2 }
+      />
+      <Button variant="contained" color="primary" onClick={addTask} fullWidth>Add Task</Button>
+      <TaskList tasks={tasks} onDelete={deleteTask} />
+    </Container>
+});
 };
 
 export default TaskManager;
